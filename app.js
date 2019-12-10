@@ -11,7 +11,7 @@ var mongoose = require("mongoose");
 var config = require("./config");
 
 var indexRouter = require("./routes/index");
-var usersRouter = require("./routes/users");
+
 //>
 mongoose.connect(config.dbConfString, { useMongoClient: true });
 global.User = require("./models/users");
@@ -37,7 +37,6 @@ app.use(cors());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
-app.use("/users", usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
